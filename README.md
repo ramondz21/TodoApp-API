@@ -5,7 +5,7 @@ This project Todo App for learning purpose. To make my understanding deep about 
 # 2️⃣ Feature
 
 - ✅ Fitur CRUD
-- 🚀 Pagination (On-going)
+- ✅ Pagination (On-going)
 - 🚀 Logging Activity (On-going)
 - 🚀 Authentication (On-going)
 - 🚀 Filtering, Sort, etc (On-going)
