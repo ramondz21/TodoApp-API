@@ -1,13 +1,25 @@
 import { Request, Response } from "express";
 import pool from "../config/database";
+import { getPaginatedTodos } from "../services/todoService";
 
 export const getTodos = async (req: Request, res: Response) => {
   try {
-    const result = await pool.query("SELECT * FROM todos");
+    // Get page and limit  from query and set default value 
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 10;
+
+    const { todos, totalItems, totalPages } = await getPaginatedTodos(page, limit)
+
     res.status(200).json({
       status: "success",
       message: "Tasks retrieved successfully",
-      data: result.rows,
+      data: todos,
+      pagination: {
+        currentPage: page,
+        limit: limit,
+        totalItems: totalItems,
+        totalPages: totalPages,
+      },
     });
   } catch (error) {
     res.status(500).json({
