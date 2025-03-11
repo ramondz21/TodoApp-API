@@ -1,8 +1,6 @@
-# 1️⃣ Nama Proyek
-
 This project Todo App for learning purpose. To make my understanding deep about backend development
 
-# 2️⃣ Feature
+# 1️⃣ Feature
 
 - ✅ Fitur CRUD
 - ✅ Pagination (On-going)
@@ -12,7 +10,7 @@ This project Todo App for learning purpose. To make my understanding deep about 
 - 🚀 Real-Time Update, probably using WebSocket (On-going)
 - 🚀 Unit Testing (On-going)
 
-# 3️⃣ Folder Structure
+# 2️⃣ Folder Structure
 
 todo-api/
 ├── src/
