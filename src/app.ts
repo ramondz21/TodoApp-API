@@ -1,10 +1,13 @@
-import express from 'express'
-import { createTable } from './models/todoModel';
-import router from './routes/todoRoutes';
+import express from 'express';
+import todoRouter from './routes/todoRoutes';
+import authRouter from './routes/authRoutes';
+import { initTables } from './models/todoModel';
+import { authenticate } from './middleware/authMiddleware';
 
-createTable()
+initTables()
 
-const app = express()
+const app = express();
 app.use(express.json());
-app.use('/api', router)
-app.listen(3000, () => console.log('Server berjalan di port 3000!'))
+app.use('/api', authRouter);
+app.use('/api', authenticate, todoRouter)
+app.listen(3000, () => console.log('Server jalan di port 3000!'));

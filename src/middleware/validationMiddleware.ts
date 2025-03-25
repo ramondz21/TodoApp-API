@@ -7,6 +7,13 @@ const todoSchema = Yup.object().shape({
   completed: Yup.boolean().default(false),
 });
 
+const authSchema = Yup.object().shape({
+  username: Yup.string().required("Username is required"),
+  password: Yup.string()
+    .min(6, "Password minimal 6 karakter")
+    .required("Password is required"),
+});
+
 export const validateTodo = async (
   req: Request,
   res: Response,
@@ -19,7 +26,20 @@ export const validateTodo = async (
   } catch (error) {
     const err = error as unknown as Error;
     res.status(400).json({
-      message: err.message
+      message: err.message,
     });
+  }
+};
+
+export const validateAuth = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    await authSchema.validate(req.body, { abortEarly: false });
+    next();
+  } catch (error) {
+    res.status(400).json({ message: (error as Error).message });
   }
 };
