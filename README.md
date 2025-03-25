@@ -2,10 +2,10 @@ This project Todo App for learning purpose. To make my understanding deep about 
 
 # 1️⃣ Feature
 
-- ✅ Fitur CRUD
-- ✅ Pagination (On-going)
+- ✅ Feature Create-Read-Update-Delete
+- ✅ Pagination
 - 🚀 Logging Activity (On-going)
-- 🚀 Authentication (On-going)
+- ✅ Authentication
 - 🚀 Filtering, Sort, etc (On-going)
 - 🚀 Real-Time Update, probably using WebSocket (On-going)
 - 🚀 Unit Testing (On-going)
